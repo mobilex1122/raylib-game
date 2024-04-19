@@ -1,6 +1,8 @@
 #include <iostream>
 #include "raylib.h"
+#include "globals.h"
 #include "Player.h"
+
 
 int main()
 {
@@ -10,6 +12,7 @@ int main()
 
     while (!WindowShouldClose())
     { 
+        Global::delta = GetFrameTime();
         player.update();
         BeginDrawing();
             ClearBackground(RAYWHITE);

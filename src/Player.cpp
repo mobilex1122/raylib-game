@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Player.h"
+#include "globals.h"
 Player::Player(float x, float y): pos({x, y}) {
     texture = LoadTexture("res/box.png");
 };
 void Player::update() {
-    float delta = GetFrameTime();
+    float delta = Global::delta;
     if (IsKeyDown(KEY_LEFT)) {
         pos.x -= 100 * delta;
     } else if (IsKeyDown(KEY_RIGHT)) {
