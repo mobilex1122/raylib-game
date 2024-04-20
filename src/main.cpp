@@ -21,12 +21,20 @@ int main()
         Global::delta = GetFrameTime();
         Scene* scene = sman->getScene();
    
+        if (IsKeyPressed(KEY_Q))
+        {
+            sman->loadScene(new Menu());
+        }
+        
         scene->update();
  
         BeginDrawing();
             ClearBackground(RAYWHITE);
-                scene->draw();
-            DrawText(scene->name, 20,41, 20, LIGHTGRAY);
+            scene->draw();
+            DrawText(scene->name, 7,7,20,GRAY);
+            DrawText(scene->name, 5,5, 20, BLACK);
+
+            DrawFPS(20,20);
         EndDrawing();
     }
     sman->getScene()->unload();

@@ -8,6 +8,7 @@ public:
     Player(float x, float y);
     void update();
     void draw();
+    void unload();
 private:
     Vector2 pos;
     Texture2D texture;

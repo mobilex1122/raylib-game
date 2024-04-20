@@ -14,3 +14,8 @@ void GameScene::draw()
 {
     player.draw();
 }
+
+void GameScene::unload()
+{
+    player.unload();
+}

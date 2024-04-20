@@ -10,6 +10,8 @@ class GameScene : public Scene
         GameScene();
         void update();
         void draw();
+        void unload();
+
     private:
         Player player;
 };
