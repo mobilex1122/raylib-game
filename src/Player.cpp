@@ -6,6 +6,8 @@ Player::Player(float x, float y): pos({x, y}) {
 };
 void Player::update() {
     float delta = Global::delta;
+
+    //NOTE: Change to one SPEED variable
     if (IsKeyDown(KEY_LEFT)) {
         pos.x -= 100 * delta;
     } else if (IsKeyDown(KEY_RIGHT)) {
