@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Menu.h"
+#include "Game.h"
 
 
 Menu::Menu(): Scene() {
@@ -8,12 +9,12 @@ Menu::Menu(): Scene() {
 
 void Menu::create()
 {
-    std::cout << "Created Menu";
+    std::cout << "Created Menu\n";
 }
 
 void Menu::update()
 {
     if (IsKeyPressed(KEY_SPACE)) {
-        std::cout << "Test \n";
+        loadScene(new GameScene());
     };
 }
