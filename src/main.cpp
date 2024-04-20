@@ -18,6 +18,7 @@ int main()
     
     sman->loadScene(new Menu());
 
+    SetTargetFPS(60);
 
     bool showDebug = false;
     GuiDebugState debugState = InitGuiDebug();
