@@ -11,13 +11,36 @@ int main()
     Player player {20,20};
 
     while (!WindowShouldClose())
-    { 
+    {
+        // Might not needed? But not sure how raylib calculates it.
         Global::delta = GetFrameTime();
-        player.update();
+        switch (Global::state)
+        {
+        case TITLE:
+            if (IsKeyPressed(KEY_SPACE)) {
+                Global::state = GAMEPLAY;
+            }
+            break;
+        case GAMEPLAY:
+            player.update();
+            break;
+        default:
+            break;
+        }
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            DrawText("HELLO", 20,20,20, LIGHTGRAY);
-            player.draw();
+            switch (Global::state)
+            {
+            case TITLE:
+                DrawText("Press SPACE", 20,20,20, LIGHTGRAY);
+                break;
+            case GAMEPLAY:
+                player.draw();
+                break;
+            default:
+                DrawText("INCORRECT STATE", 20,20,20, RED);
+                break;
+            }
         EndDrawing();
     }
     
