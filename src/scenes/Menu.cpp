@@ -14,3 +14,9 @@ void Menu::update()
         sman->loadScene(new GameScene());
     };
 }
+
+void Menu::draw() {
+    float scy = GetScreenHeight() / 2;
+    float scx = GetScreenWidth() / 2;
+    DrawText("Press SPACE to start.", scx - 110,scy - 10,20, BLACK);
+}
