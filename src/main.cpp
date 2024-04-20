@@ -4,7 +4,10 @@
 #include "Player.h"
 #include "scenes/Menu.h"
 #include "SceneManager.h"
-
+#define RAYGUI_IMPLEMENTATION
+#include "raygui.h"
+#define GUI_DEBUG_IMPLEMENTATION
+#include "gui_Debug.h"
 SceneManager* SceneManager::instance = nullptr;
 
 int main()
@@ -14,6 +17,10 @@ int main()
     SceneManager* sman = SceneManager::getInstance();
     
     sman->loadScene(new Menu());
+
+
+    bool showDebug = false;
+    GuiDebugState debugState = InitGuiDebug();
 
     while (!WindowShouldClose())
     {
@@ -25,16 +32,26 @@ int main()
         {
             sman->loadScene(new Menu());
         }
+
+        if (IsKeyPressed(KEY_F1)) {
+            showDebug = !showDebug;
+        }
         
+        if (showDebug) {
+            strcpy(debugState.FpsText, std::to_string(GetFPS()).c_str());
+            strcpy(debugState.Scene_NameText, scene->name);
+        }
+
         scene->update();
  
         BeginDrawing();
             ClearBackground(RAYWHITE);
             scene->draw();
-            DrawText(scene->name, 7,7,20,GRAY);
-            DrawText(scene->name, 5,5, 20, BLACK);
-
-            DrawFPS(20,20);
+            
+            // Debug view
+            if (showDebug) {
+                GuiDebug(&debugState);
+            }
         EndDrawing();
     }
     sman->getScene()->unload();
