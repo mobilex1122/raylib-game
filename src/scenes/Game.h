@@ -2,13 +2,16 @@
 #define GAME_SCENE_H
 #include "../Scene.h"
 #include "raylib.h"
+#include "../Player.h"
 
 class GameScene : public Scene
 {
     public:
         GameScene();
-        void create();
         void update();
+        void draw();
+    private:
+        Player player;
 };
 
 #endif

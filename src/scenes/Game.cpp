@@ -2,16 +2,15 @@
 #include "Game.h"
 
 
-GameScene::GameScene(): Scene() {
+GameScene::GameScene(): Scene(), player(50,50) {
     name = "Game";
 }
-
-void GameScene::create()
-{
-    std::cout << "Created GAME SCENE\n";
-}
-
 void GameScene::update()
 {
-    
+    player.update();
+}
+
+void GameScene::draw()
+{
+    player.draw();
 }

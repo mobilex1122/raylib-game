@@ -7,7 +7,6 @@ class Menu : public Scene
 {
     public:
         Menu();
-        void create();
         void update();
 };
 
