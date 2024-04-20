@@ -28,3 +28,7 @@ void Player::draw() {
     DrawTextureEx(texture,Vector2Subtract(pos,textureCenter),0,2,WHITE);
     DrawCircle(pos.x,pos.y, 3, RED);
 };
+
+void Player::unload() {
+    UnloadTexture(texture);
+}

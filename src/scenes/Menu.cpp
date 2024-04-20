@@ -1,0 +1,17 @@
+#include <iostream>
+#include "Menu.h"
+#include "../SceneManager.h"
+#include "Game.h"
+
+
+Menu::Menu(): Scene() {
+    name = "Menu";
+}
+
+void Menu::update()
+{
+    if (IsKeyPressed(KEY_SPACE)) {
+        SceneManager* sman = SceneManager::getInstance();
+        sman->loadScene(new GameScene());
+    };
+}

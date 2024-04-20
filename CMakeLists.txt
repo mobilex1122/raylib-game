@@ -19,7 +19,8 @@ file(REMOVE res)
 file(COPY res DESTINATION .)
 
 # Search for all .cpp files and save them to SOURCES
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cpp" "src/**/*.cpp")
+
 
 # MinGW (Windows)
 if(BUILD_FOR_WINDOWS)
@@ -58,5 +59,5 @@ if(BUILD_FOR_WINDOWS)
 endif()
 
 # Linking Libraries
-target_include_directories(${PROJECT_NAME} PUBLIC ${RAYLIB_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/src ${RAYLIB_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} ${RAYLIB_LIBRARY})

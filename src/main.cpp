@@ -2,48 +2,43 @@
 #include "raylib.h"
 #include "globals.h"
 #include "Player.h"
+#include "scenes/Menu.h"
+#include "SceneManager.h"
 
+SceneManager* SceneManager::instance = nullptr;
 
 int main()
 {
     InitWindow(800,450, "Game");
 
-    Player player {20,20};
+    SceneManager* sman = SceneManager::getInstance();
+    
+    sman->loadScene(new Menu());
 
     while (!WindowShouldClose())
     {
         // Might not needed? But not sure how raylib calculates it.
         Global::delta = GetFrameTime();
-        switch (Global::state)
+        Scene* scene = sman->getScene();
+   
+        if (IsKeyPressed(KEY_Q))
         {
-        case TITLE:
-            if (IsKeyPressed(KEY_SPACE)) {
-                Global::state = GAMEPLAY;
-            }
-            break;
-        case GAMEPLAY:
-            player.update();
-            break;
-        default:
-            break;
+            sman->loadScene(new Menu());
         }
+        
+        scene->update();
+ 
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            switch (Global::state)
-            {
-            case TITLE:
-                DrawText("Press SPACE", 20,20,20, LIGHTGRAY);
-                break;
-            case GAMEPLAY:
-                player.draw();
-                break;
-            default:
-                DrawText("INCORRECT STATE", 20,20,20, RED);
-                break;
-            }
+            scene->draw();
+            DrawText(scene->name, 7,7,20,GRAY);
+            DrawText(scene->name, 5,5, 20, BLACK);
+
+            DrawFPS(20,20);
         EndDrawing();
     }
-    
+    sman->getScene()->unload();
+
     CloseWindow();
     return 0;
 }
