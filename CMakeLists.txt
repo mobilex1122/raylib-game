@@ -56,6 +56,8 @@ if(BUILD_FOR_WINDOWS)
   foreach(dll_file ${dll_files})
     file(COPY ${dll_file} DESTINATION ${CMAKE_SOURCE_DIR}/build)
   endforeach()
+
+  target_link_options(${PROJECT_NAME} PRIVATE -static -static-libgcc -static-libstdc++)
 endif()
 
 # Linking Libraries
