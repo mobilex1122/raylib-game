@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.29)
 
 # Constants
-set(BUILD_FOR_WINDOWS OFF)
+set(BUILD_FOR_WINDOWS OFF CACHE BOOL "Force build Windows version on linux")
 
 # Set Project name
 project(game VERSION 1.0)
