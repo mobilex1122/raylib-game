@@ -6,6 +6,7 @@
 #include "SceneManager.hpp"
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
+#undef RAYGUI_IMPLEMENTATION
 #define GUI_DEBUG_IMPLEMENTATION
 #include "gui_Debug.hpp"
 SceneManager* SceneManager::instance = nullptr;
