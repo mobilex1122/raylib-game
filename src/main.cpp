@@ -1,13 +1,13 @@
 #include <iostream>
 #include "raylib.h"
-#include "globals.h"
-#include "Player.h"
-#include "scenes/Menu.h"
-#include "SceneManager.h"
+#include "globals.hpp"
+#include "Player.hpp"
+#include "scenes/Menu.hpp"
+#include "SceneManager.hpp"
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #define GUI_DEBUG_IMPLEMENTATION
-#include "gui_Debug.h"
+#include "gui_Debug.hpp"
 SceneManager* SceneManager::instance = nullptr;
 
 int main()

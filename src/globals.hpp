@@ -1,6 +1,6 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
-#include "Scene.h"
+#include "Scene.hpp"
 enum GameState {GAME_LOADING,GAME_SCENE};
 namespace Global {
 

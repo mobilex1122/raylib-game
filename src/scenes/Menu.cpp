@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Menu.h"
-#include "../SceneManager.h"
-#include "Game.h"
+#include "Menu.hpp"
+#include "../SceneManager.hpp"
+#include "Game.hpp"
 
 
 Menu::Menu(): Scene("Menu") {

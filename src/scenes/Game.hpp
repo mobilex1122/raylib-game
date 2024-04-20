@@ -1,8 +1,8 @@
 #ifndef GAME_SCENE_H
 #define GAME_SCENE_H
-#include "../Scene.h"
+#include "../Scene.hpp"
 #include "raylib.h"
-#include "../Player.h"
+#include "../Player.hpp"
 
 class GameScene : public Scene
 {

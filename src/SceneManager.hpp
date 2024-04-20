@@ -1,6 +1,6 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMAMAGER_H
-#include "Scene.h"
+#include "Scene.hpp"
 class SceneManager
 {
 public:

@@ -1,4 +1,4 @@
-#include "globals.h"
+#include "globals.hpp"
 
 
 float Global::delta = 0;

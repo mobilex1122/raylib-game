@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Game.h"
+#include "Game.hpp"
 
 
 GameScene::GameScene(): Scene("Game"), player(50,50) {

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Player.h"
-#include "globals.h"
+#include "Player.hpp"
+#include "globals.hpp"
 Player::Player(float x, float y): pos({x, y}) {
     texture = LoadTexture("res/box.png");
 };
