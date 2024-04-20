@@ -6,6 +6,7 @@ class Scene
 {
 public:
     Scene();
+    Scene(const char * name);
     const char * name;
     virtual void create();
     virtual void update();

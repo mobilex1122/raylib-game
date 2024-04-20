@@ -2,8 +2,7 @@
 #include "Game.h"
 
 
-GameScene::GameScene(): Scene(), player(50,50) {
-    name = "Game";
+GameScene::GameScene(): Scene("Game"), player(50,50) {
 }
 void GameScene::update()
 {

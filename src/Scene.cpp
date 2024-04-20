@@ -2,7 +2,10 @@
 #include <iostream>
 Scene::Scene()
 {
-    name = "Scene";
+  name = "Untitled";
+}
+Scene::Scene(const char * name) {
+  this->name = name;
 }
 
 //NOTE: Left create,draw,update,unload blank for now

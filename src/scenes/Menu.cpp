@@ -4,8 +4,7 @@
 #include "Game.h"
 
 
-Menu::Menu(): Scene() {
-    name = "Menu";
+Menu::Menu(): Scene("Menu") {
 }
 
 void Menu::update()
