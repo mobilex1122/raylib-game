@@ -15,8 +15,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Copy Resources to Build
-file(REMOVE res)
-file(COPY res DESTINATION .)
+file(REMOVE res/)
+file(COPY res/out/ DESTINATION res/)
 
 # Search for all .cpp files and save them to SOURCES
 file(GLOB SOURCES "src/*.cpp" "src/**/*.cpp")
@@ -44,11 +44,6 @@ endif()
 # Make an executable with SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Define the source directory
-set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/res)
-
-# Define the destination directory (build directory)
-set(DEST_DIR ${CMAKE_CURRENT_BINARY_DIR}/res)
 
 # DLL Files
 if(BUILD_FOR_WINDOWS)

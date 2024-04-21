@@ -1,5 +1,12 @@
 # RAYLIB GAME
 
+## Assets Build
+**NOTE:** Building from .aseprite files requires Aseprite installed on the system!! If you don't own aseprite compile the files manualy or ask someone who owns Aseprite.
+
+## Linux
+
+Go to `res/` folder and run `compileTextures.sh`
+
 ## Build and Run
 
 ### Linux

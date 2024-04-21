@@ -2,6 +2,15 @@
 # Inspired by https://github.com/marcothelost/ceremonial-robes/blob/main/build.sh
 
 BUILD_DIR="build"
+ASEPRITE="/usr/bin/aseprite"
+
+# Builds Texture Atlas from aseprite files
+if [ -f "$ASEPRITE" ]; then
+    mkdir -p ./res/out/
+    $ASEPRITE -b ./res/src/*.aseprite --filename-format '{title}-{frame}' --sheet-pack --sheet ./res/out/atlas.png --data ./res/out/atlas.json
+else
+    echo "Aseprite is not installed!!"
+fi
 
 if [[ "$*" == *"--windows"* ]]; then
     echo "=== Windows Build ==="
@@ -20,8 +29,8 @@ cmake --build .
 if [[ "$*" == *"--run"* ]]; then
     echo "=== Executing Game ==="
     if [ $BUILD_FOR_WINDOWS == "ON" ]; then
-        wine ./game.exe &
+        wine ./game.exe
     else
-        ./game &
+        ./game
     fi
 fi
