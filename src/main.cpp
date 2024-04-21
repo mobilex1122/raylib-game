@@ -1,28 +1,34 @@
 #include <iostream>
 #include "raylib.h"
+#include "AtlasManager.hpp"
+#include "SceneManager.hpp"
 #include "globals.hpp"
 #include "Player.hpp"
 #include "scenes/Menu.hpp"
-#include "SceneManager.hpp"
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #undef RAYGUI_IMPLEMENTATION
 #define GUI_DEBUG_IMPLEMENTATION
 #include "gui_Debug.hpp"
 SceneManager* SceneManager::instance = nullptr;
+AtlasManager* AtlasManager::instance = nullptr;
 
 int main()
 {
     InitWindow(800,450, "Game");
 
     SceneManager* sman = SceneManager::getInstance();
-    
+
     sman->loadScene(new Menu());
 
     SetTargetFPS(60);
 
     bool showDebug = false;
     GuiDebugState debugState = InitGuiDebug();
+
+    AtlasManager* atlman = AtlasManager::getInstance();
+
+    atlman->loadAtlas("res/atlas.png","res/atlas.json");
 
     while (!WindowShouldClose())
     {

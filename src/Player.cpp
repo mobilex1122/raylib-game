@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Player.hpp"
 #include "globals.hpp"
+#include "AtlasManager.hpp"
 Player::Player(float x, float y): pos({x, y}) {
     texture = LoadTexture("res/box.png");
 };
@@ -21,11 +22,12 @@ void Player::update() {
     }
 }
 void Player::draw() {
-    //DrawRectangle(pos.x,pos.y,20,20, RED)
-    Vector2 textureCenter {(float)texture.height,(float)texture.width};
-    textureCenter = Vector2Scale(textureCenter,2);
-    textureCenter = Vector2Divide(textureCenter,{2,2});
-    DrawTextureEx(texture,Vector2Subtract(pos,textureCenter),0,2,WHITE);
+    frame += 0.2;
+    if (frame >= 6) {
+        frame = 0;
+    }
+    AtlasManager* atlm = AtlasManager::getInstance();
+    atlm->drawPro("diamond",floor(frame),pos.x,pos.y,0.5,0.5);
     DrawCircle(pos.x,pos.y, 3, RED);
 };
 

@@ -10,6 +10,7 @@ public:
     void draw();
     void unload();
 private:
+    float frame = 0;
     Vector2 pos;
     Texture2D texture;
 };
