@@ -4,6 +4,7 @@
 #include "SceneManager.hpp"
 #include "globals.hpp"
 #include "Player.hpp"
+#include "scenes/Intro.hpp"
 #include "scenes/Menu.hpp"
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
@@ -19,7 +20,7 @@ int main()
 
     SceneManager* sman = SceneManager::getInstance();
 
-    sman->loadScene(new Menu());
+    sman->loadScene(new Intro());
 
     SetTargetFPS(60);
 
@@ -53,7 +54,7 @@ int main()
         scene->update();
  
         BeginDrawing();
-            ClearBackground(RAYWHITE);
+            ClearBackground(WHITE);
             scene->draw();
             
             // Debug view

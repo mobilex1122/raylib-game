@@ -30,6 +30,7 @@ public:
     void draw(const char * texture, int frame, float x, float y);
 
     void drawPro(const char * texture, int frame, float x, float y,float offsetX,float offsetY);
+    void drawN(const char * texture, int frame, float x, float y,float w,float h, int left,int top,int right,int bottom, NPatchLayout layout);
     
     Rectangle getTextureRect(const char * texture,int frame);
 

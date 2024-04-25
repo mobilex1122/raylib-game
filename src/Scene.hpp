@@ -1,5 +1,6 @@
 #ifndef SCENE_H
 #define SCENE_H
+#include "raylib.h"
 enum SceneState {SCENE_LOADING,SCENE_RUNNING,SCENE_UNLOADING,SCENE_UNLOADED};
 
 class Scene

@@ -25,6 +25,16 @@ void AtlasManager::drawPro(const char * texture, int frame, float x, float y,flo
         NoTexture(x,y);
     }
 }
+void AtlasManager::drawN(const char * texture, int frame, float x, float y,float w,float h, int left,int top,int right,int bottom, NPatchLayout layout) {
+    if (textureExists(texture,frame)) {
+        Rectangle rect = getTextureRect(texture,frame);
+        Rectangle rectDest {x,y,w,h};
+        NPatchInfo npath {rect, left,top,right,bottom,layout};
+        DrawTextureNPatch(atlas,npath,rectDest,(Vector2){0,0},0,WHITE);
+    } else {
+        NoTexture(x,y);
+    }
+}
 void AtlasManager::NoTexture(float x,float y) {
     DrawRectangleLines(x-20,y-20,40,40,RED);
     DrawLine(x-20,y-20,x+20,y+20,RED);

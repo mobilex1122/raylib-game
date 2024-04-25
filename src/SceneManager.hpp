@@ -1,5 +1,5 @@
 #ifndef SCENEMANAGER_H
-#define SCENEMAMAGER_H
+#define SCENEMANAGER_H
 #include "Scene.hpp"
 class SceneManager
 {
